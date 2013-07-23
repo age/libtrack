@@ -2,7 +2,6 @@
 #define TRACK_IO_H
 
 #include <string>
-#include <tinyxml2.h>
 #include <track_model.h>
 
 namespace track_library {

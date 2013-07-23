@@ -1,4 +1,5 @@
 #include <track_io.h>
+#include <tinyxml2.h>
 
 namespace track_library {
 namespace io {
