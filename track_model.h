@@ -8,7 +8,7 @@ namespace track_library {
 class Tile
 {
 public:
-    enum Type { Start, Line, Turn, Trampoline, Teeth, Saw, Crossing, Invalid };
+    enum Type { Start, Line, Turn, Hill, Teeth, Saw, Crossing, Invalid };
 
     Tile(Type type, int x, int y, int rotation);
 
