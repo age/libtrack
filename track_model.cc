@@ -77,4 +77,10 @@ void TrackModel::setHeight(int h)
     m_height = h;
 }
 
+void TrackModel::clear()
+{
+    m_tiles.clear();
+    m_width = m_height = 0;
+}
+
 }
