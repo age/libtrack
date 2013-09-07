@@ -26,14 +26,13 @@ class TrackModel
 public:
     TrackModel(int width = 0, int height = 0);
 
+    const Tile * tileAt(int x, int y) const;
     const std::list<Tile> & tiles() const;
     bool addTile(const Tile & tile);
     int width() const;
     void setWidth(int w);
     int height() const;
     void setHeight(int h);
-
-    void clear();
 private:
     int m_width;
     int m_height;
