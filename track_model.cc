@@ -36,14 +36,6 @@ TrackModel::TrackModel(int width, int height)
 {
 }
 
-const Tile *TrackModel::tileAt(int x, int y) const
-{
-    for (const Tile & t : m_tiles)
-        if (t.x() == x && t.y() == y)
-            return &t;
-    return nullptr;
-}
-
 const std::list<Tile> &TrackModel::tiles() const
 {
     return m_tiles;
@@ -75,6 +67,13 @@ int TrackModel::height() const
 void TrackModel::setHeight(int h)
 {
     m_height = h;
+}
+
+void TrackModel::clear()
+{
+    m_tiles.clear();
+    m_width = 0;
+    m_height = 0;
 }
 
 }
