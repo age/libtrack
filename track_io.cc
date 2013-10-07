@@ -4,7 +4,7 @@
 namespace track_library {
 namespace io {
 
-bool populateTrackFromFile(TrackModel &model, const std::string &path)
+bool TRACK_EXPORT populateTrackFromFile(TrackModel &model, const std::string &path)
 {
     tinyxml2::XMLDocument doc;
     tinyxml2::XMLElement * root;
@@ -32,7 +32,7 @@ bool populateTrackFromFile(TrackModel &model, const std::string &path)
     return true;
 }
 
-bool saveTrackToFile(const TrackModel &model, const std::string &path)
+bool TRACK_EXPORT saveTrackToFile(const TrackModel &model, const std::string &path)
 {
     tinyxml2::XMLDocument doc;
     tinyxml2::XMLElement * root = doc.NewElement("track");

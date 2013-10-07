@@ -1,14 +1,15 @@
 #ifndef TRACK_MODEL_H
 #define TRACK_MODEL_H
 
+#include <track_export.h>
 #include <list>
 
 namespace track_library {
 
-class Tile
+class TRACK_EXPORT Tile
 {
 public:
-    enum Type { Start, Line, Turn, Hill, Teeth, Saw, Crossing, Invalid };
+    enum TRACK_EXPORT Type { Start, Line, Turn, Hill, Teeth, Saw, Crossing, Invalid };
 
     Tile(Type type, int x, int y, int rotation);
 
@@ -21,7 +22,7 @@ private:
     int m_x, m_y, m_rotation;
 };
 
-class TrackModel
+class TRACK_EXPORT TrackModel
 {
 public:
     TrackModel(int width = 0, int height = 0);

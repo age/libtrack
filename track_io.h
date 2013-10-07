@@ -7,8 +7,8 @@
 namespace track_library {
 namespace io {
 
-bool populateTrackFromFile(TrackModel & model, const std::string & path);
-bool saveTrackToFile(const TrackModel & model, const std::string & path);
+bool TRACK_EXPORT populateTrackFromFile(TrackModel & model, const std::string & path);
+bool TRACK_EXPORT saveTrackToFile(const TrackModel & model, const std::string & path);
 
 }
 }
