@@ -14,6 +14,12 @@ set(library_sources
     tinyxml2.cpp
 )
 
+# TODO: add Clang, MSVC compile flags?
+if (CMAKE_COMPILER_IS_GNUCXX)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Os -Wall -Wextra -pedantic")
+endif()
+
+
 include(GenerateExportHeader)
 add_library(track STATIC ${library_sources})
 generate_export_header(track)
