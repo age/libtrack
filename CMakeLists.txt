@@ -17,7 +17,7 @@ set(library_sources
 include(CheckCXXCompilerFlag)
 
 # TODO: add Clang, MSVC compile flags?
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os -Wall -Wextra -pedantic")
   CHECK_CXX_COMPILER_FLAG("-std=c++11" STDCPP11_SUPPORTED)
   if(STDCPP11_SUPPORTED)
@@ -27,7 +27,7 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     if(STDCPP0X_SUPPORTED)
       set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
     else()
-      message(FATAL_ERROR "GCC doesn't appear to support C++11 or at least C++0x")
+      message(FATAL_ERROR "Compiler doesn't appear to support C++11 or at least C++0x")
     endif()
   endif()
 endif()
