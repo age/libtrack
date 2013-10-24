@@ -2,9 +2,9 @@ language: cpp
 compiler:
   - gcc
 before_install:
-  - apt-get update
+  - sudo apt-get update
 install:
-  - apt-get install cmake
+  - sudo apt-get install cmake
 before_script:
   - cmake .
 script: make
