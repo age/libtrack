@@ -14,11 +14,23 @@ set(library_sources
     tinyxml2.cpp
 )
 
-# TODO: add Clang, MSVC compile flags?
-if (CMAKE_COMPILER_IS_GNUCXX)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Os -Wall -Wextra -pedantic")
-endif()
+include(CheckCXXCompilerFlag)
 
+# TODO: add Clang, MSVC compile flags?
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os -Wall -Wextra -pedantic")
+  CHECK_CXX_COMPILER_FLAG("-std=c++11" STDCPP11_SUPPORTED)
+  if(STDCPP11_SUPPORTED)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+  else()
+    CHECK_CXX_COMPILER_FLAG("-std=c++0x" STDCPP0X_SUPPORTED)
+    if(STDCPP0X_SUPPORTED)
+      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+    else()
+      message(FATAL_ERROR "GCC doesn't appear to support C++11 or at least C++0x")
+    endif()
+  endif()
+endif()
 
 include(GenerateExportHeader)
 add_library(track STATIC ${library_sources})
